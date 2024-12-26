@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title> ZNote - {{ title }}</title>
+    {% else %}
+        <title>ZNote</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">  
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%2352988c&ctz=Asia%2FKolkata&showTitle=0&showTabs=0&showCalendars=0&showPrint=0&showNav=1&showTz=0" style="border-width:0" width="250px" height="45%" margin-top="10%" frameborder="0" scrolling="no"></iframe>
+              </div>
+              <button class="openbtn" onclick="openNav()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              </svg></button>
+              <a class="navbar-brand logo" href="/home"><svg height="auto" viewBox="-.46828066 -.43941973 37.83628066 12.59341973" width="100" xmlns="http://www.w3.org/2000/svg"><path style="fill: #FFFFFF" d="m8.116 6.314-.847-.847v2.396h.847zm-3.388-2.552h2.062l-.843-.843-.004-.004h-1.083a1.394 1.394 0 0 0 -.132-2.783v2.788h-.001l-2.317-2.31a4.133 4.133 0 0 0 -.722.476l2.192 2.184v4.797l1.695 1.693v-1.197l-.847-.847z"/><path style="fill: #FFFFFF" d="m5.575 3.767-.004 4.09h.846l.004-3.238zm2.905 1.699-.846-.846h-1.212l.846.846zm-5.445 1.804v-3.643l-1.946-1.945a4.218 4.218 0 0 0 -.477.72l1.576 1.576v1.198l-1.912-1.912c-.09.336-.14.69-.144 1.054zm-2.888-1.74v1.197l5.428 5.427v-1.197zm9.663 1.263h-.848v1.07h-.846a1.395 1.395 0 1 0 2.789 0zm6.896 1.089-.635 1.207h-3.957l2.573-4.942h-2.278l.635-1.209h3.958l-2.574 4.944zm2.298-2.482h2.029v1.21h-2.029v1.272h2.029v1.208h-3.523v-6.152h3.523v1.209h-2.029zm4.864-2.462c.784 0 1.236.083 1.568.295.424.259.682.784.682 1.375 0 .433-.138.793-.415 1.07-.175.184-.313.267-.645.36.378.082.544.165.738.35.276.258.415.618.415 1.07 0 .571-.231 1.078-.627 1.346-.305.203-.674.286-1.3.286h-2.518v-6.152zm-.608 2.546h.368c.683 0 .969-.212.969-.72 0-.498-.286-.71-.987-.71h-.35zm0 2.536h.544c.627 0 .894-.212.894-.71 0-.295-.11-.508-.332-.628-.166-.092-.313-.11-.765-.11h-.341zm5.025 1.07h-1.495v-6.152h1.992c.811 0 1.401.148 1.807.461.425.333.664.886.664 1.559 0 .94-.396 1.558-1.19 1.872l1.356 2.26h-1.789l-1.346-2.38zm.48-3.22c.608 0 .977-.312.977-.848 0-.506-.36-.857-.885-.857h-.572v1.705zm6.983 3.22h1.62l-2.018-6.151h-1.9l-2.028 6.15h1.575l.38-1.209h1.993zm-1.993-2.42.618-1.97.617 1.97z"/></svg></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            </div>
+            
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav" style="margin-right: 2%;">
+              <div class="dropdown">
+                <button role="button" type="button" class="openbtn" data-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              </svg></button>
+              <div id="Dropdown" class="dropdown-menu dropdown-menu-right drop modal-background" aria-labelledby="dropdownMenuButton">
+              <div class="settings-lists">
+               <h6 style="text-align:center; color: white;"> MANAGER </h6>
+               <select class="form-select form-design">
+                <option> Manager 1 </option>
+                <option> Manager 2 </option>
+                <option> Manager 3 </option>
+                <option> Manager 4 </option>
+              </select>
+              </div>
+              <hr>
+              <div class="settings-lists">
+              <h6 style="text-align:center; color: white;"> TEAM </h6> 
+              <select class="form-select form-design">
+               <option>Team 1</option>
+               <option>Team 2</option>
+               <option>Team 3</option>
+               <option>Team 4</option>
+             </select>
+             </div>
+             <hr>
+             <button role="button" type="button" class="btn-apply" style="text-align: center;">Apply</button>
+              </div>
+            </div>
+              <div class="dropdown">
+                  <button role="button" type="button" class="openbtn" data-toggle="dropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg></button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+    <div>
+      <div class="card collapse-cards">
+        <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="headingOne">
+          <h5 class="mb-0">
+              Monday
+          </h5>
+        </div>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="collapse-cards-body">
+              <button type="button" class="btn collapsed" data-toggle="collapse" data-target="#collapseMonday" aria-expanded="true" aria-controls="collapseMonday">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg> Add Task</button>
+                <div id="collapseMonday" class="collapse" aria-labelledby="Monday" data-parent="#accordion" style="width: 130%;">
+                <form method="POST" action="{{url_for('add')}}">
+                  <input class="add-task" type="text" name="task-description">
+                  <input type="submit" value="add item" class="button">
+              </form>
+               </div> 
+            </div>
+          </div>
+        </div>
+
+          <div class="card collapse-cards">
+            <div class="card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="headingTwo">
+              <h5 class="mb-0">
+                  Tuesday
+              </h5>
+            </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="collapse-cards-body">
+                  <button type="button" class="btn collapsed" data-toggle="collapse" data-target="#collapseTuesday" aria-expanded="true" aria-controls="collapseTuesday">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg> Add Task</button>
+                  <div id="collapseTuesday" class="collapse" aria-labelledby="Tuesday" data-parent="#accordion" style="width: 130%;">
+                  <form>
+                    <input type="text" class="add-task">
+                  </form>
+                  <div style="display:flex;">
+                  <button type="button" class="btn btn-dark task-btn" style="margin-left: 79%;">Add Task</button>
+                  <button type="button" class="btn btn-dark task-btn">Cancel</button>
+                  </div>
+                 </div> 
+              </div>
+            </div>
+            </div>
+
+  
+            <div class="card collapse-cards">
+              <div class="card-header" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" id="headingThree">
+                <h5 class="mb-0">
+                    Wednesday
+                </h5>
+              </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="collapse-cards-body">
+                    <button type="button" class="btn collapsed" data-toggle="collapse" data-target="#collapseWednesday" aria-expanded="true" aria-controls="collapseWednesday">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg> Add Task</button>
+                      <div id="collapseWednesday" class="collapse" aria-labelledby="Wednesday" data-parent="#accordion" style="width: 130%;">
+                      <form>
+                        <input type="text" class="add-task">
+                      </form>
+                      <div style="display:flex;">
+                      <button type="button" class="btn btn-dark task-btn" style="margin-left: 79%;">Add Task</button>
+                      <button type="button" class="btn btn-dark task-btn">Cancel</button>
+                      </div>
+                     </div> 
+                </div>
+              </div>
+              </div>
+  
+              <div class="card collapse-cards">
+                <div class="card-header" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" id="headingFour">
+                  <h5 class="mb-0">
+                      Thursday
+                  </h5>
+                </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div class="collapse-cards-body">
+                      <button type="button" class="btn collapsed" data-toggle="collapse" data-target="#collapseThursday" aria-expanded="true" aria-controls="collapseThursday">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg> Add Task</button>
+                        <div id="collapseThursday" class="collapse" aria-labelledby="Thursday" data-parent="#accordion" style="width: 130%;">
+                        <form>
+                          <input type="text" class="add-task">
+                        </form>
+                        <div style="display:flex;">
+                        <button type="button" class="btn btn-dark task-btn" style="margin-left: 79%;">Add Task</button>
+                        <button type="button" class="btn btn-dark task-btn">Cancel</button>
+                        </div>
+                       </div> 
+                  </div>
+                </div>
+                </div>
+  
+                <div class="card collapse-cards">
+                  <div class="card-header" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive" id="headingFive">
+                    <h5 class="mb-0">
+                        Friday
+                    </h5>
+                  </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                      <div class="collapse-cards-body">
+                        <button type="button" class="btn collapsed" data-toggle="collapse" data-target="#collapseFriday" aria-expanded="true" aria-controls="collapseFriday">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                          </svg> Add Task</button>
+                          <div id="collapseFriday" class="collapse" aria-labelledby="Friday" data-parent="#accordion" style="width: 130%;">
+                          <form>
+                            <input type="text" class="add-task">
+                          </form>
+                          <div style="display:flex;">
+                          <button type="button" class="btn btn-dark task-btn" style="margin-left: 79%;">Add Task</button>
+                          <button type="button" class="btn btn-dark task-btn">Cancel</button>
+                          </div>
+                         </div> 
+                    </div>
+                  </div>
+                  </div>
+            </div>
+
+              
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+            function openNav() {
+              document.getElementById("mySidepanel").style.width = "250px";
+            }
+    </script>
+    <script>
+            function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+      }
+    </script>
+    <script>
+      function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+  document.getElementById("Dropdown").addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+$(document).ready(function() {
+  $("#btn-tuesday").click(function() {
+    $("#form-tuesday").toggle(500);
+  });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+body {
+  background: #52988C;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #131515;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.alignment{
+    margin-left: 8rem;
+}
+
+.collapse-cards{
+    width: 75%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background: #E5E5E5;
+    border-radius: 1rem;
+    cursor:pointer;
+    border: transparent;
+}
+
+.collapse-cards-body{
+  width: 75%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  background: #E5E5E5;
+  border-radius: 1rem;
+}
+
+.collapse-button{
+  width: 75%;
+  height: 50px;
+  margin-bottom: 1.5rem;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  background: #E5E5E5;
+  border-radius: 1rem;
+}
+.align-left{
+  margin-left: 0%;
+}
+
+.align-right{
+  margin-left: 125%;
+}
+
+.icon{
+  background: transparent;
+  border-color: transparent;
+}
+
+/* The sidepanel menu */
+.sidepanel {
+  height: 100%;
+  width: auto;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  padding: 10px 15px;
+  border: none !important;
+  outline: none !important;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+.btn {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #444444;
+  padding: 10px 15px;
+  border: none !important;
+  outline: none !important;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+
+.dropdown-down-size{
+  width: 20rem;
+  height:25%;
+}
+
+#myInput {
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  border: none;
+}
+
+/* The search field when it gets focus/clicked on */
+#myInput:focus {outline: 3px solid #ddd;}
+
+.center-align{
+  text-align: center;
+}
+
+.accordion-inline-margin{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.openbtn-plus {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  padding: 10px 15px;
+  border: none !important;
+  outline: none !important;
+}
+
+.logo{
+  text-align: center;
+  /* margin-right: 0; */
+  margin-left: 1rem;
+  align-items: center;
+  margin-top: 0.10rem;
+}
+
+.drop{
+  width: 20rem;
+  height: 30rem;
+}
+
+.form-design{
+  margin-left: 2.5rem;
+  width: 15rem;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #131515; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #131515;
+  display: block;
+  border-bottom: #131515;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 250px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+  margin-top: 2%;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.list-size{
+  width:250px;
+}
+
+.sidenav-admin {
+  height: 75%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  margin-top: 9.5%;
+  background-color: transparent;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  color: #131515;
+}
+
+.sidenav-admin a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #FFFFFF;
+  display: block;
+  border-bottom: #131515;
+  text-align: center;
+}
+
+ul.sidenav-admin li a{
+  color: #FFFFFF;
+}
+
+
+.vl{
+  border-right: 2px solid black;
+}
+
+.vl-generate{
+  border-right: 2px solid white;
+}
+
+.datepicker {
+  z-index: 1600 !important; /* has to be larger than 1050 */
+}
+
+#checkboxes ul {
+  list-style: none;
+  float: left;
+  margin-right: 5%;
+}
+
+.side-modal{
+  margin-top: 5%;
+  width: 40%;
+}
+
+.clr{
+  clear:both;
+  font-size:0;
+}
+
+.right-modal{
+  margin-top: 5%;
+  margin-left: 6%;
+  width: 60%;
+}
+
+#radios ul {
+  list-style: none;
+  float: left;
+}
+
+.modal-background{
+  color: #ddd;
+  background-color: #131515;
+  border: 1px solid #E5E5E5;
+}
+
+.text-white{
+  color: white;
+}
+
+.openbtn-generate {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-left: 37.5%;
+  width: 25%;
+  border: none !important;
+  outline: none !important; 
+}
+
+.modal-footer-generate{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-generate-summary{
+  font-size: 15px;
+  cursor: pointer;
+  background-color: black;
+  color: #E5E5E5;
+  padding: 10px 15px;
+  border-radius: 7px;
+  width: auto;
+  border: none !important;
+  outline: none !important; 
+}
+
+.settings-lists{
+  border-bottom: 2px solid white;
+  height:37%;
+}
+
+.btn-apply{
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+  width: 30%;
+  margin-left: 35%;
+  border: none !important;
+  outline: none !important; 
+  cursor: pointer;
+}
+
+.teams{
+  align-items: center;
+  display: flex;
+}
+
+.btn-teams{
+  width: 27%;
+  background-color: #52988C;
+  color:white;
+  border-radius: 7px;
+  margin-left: 55%;
+}
+
+.modal-background-settings{
+  color: #ddd;
+  background-color: #131515;
+  border: 1px solid #E5E5E5;
+}
+
+.team-details{
+  background-color: white;
+  width: 70%;
+  border-radius: 7px;
+  margin-top: 12px;
+  color: black;
+}
+
+.btn-teams-update{
+  background-color: #52988C;
+  color: white;
+  border: none !important;
+  outline: none !important; 
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 10px;
+  margin-left: 67%;
+  width: 81px;
+  height: 25px;
+}
+
+.add-task{
+  width:90%;
+  margin-left: 5%;
+  height: 65px;
+}
+
+.collapse-form{
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  background: #E5E5E5;
+  border-radius: 1rem;
+}
+
+.form-group{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.button-add{ 
+  color:green; 
+} 

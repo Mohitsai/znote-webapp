@@ -1,0 +1,10 @@
+{% extends "layout-form.html" %}
+{% block content %}
+    <div class="content-section">
+        <fieldset class="form-group">
+                <legend class="mb-4 alignment">Welcome to Znote</legend>
+                <a class="btn btn-primary alignment alignbutton size" href="{{ url_for('login') }}" role="button" id="button1">Signin</a>
+                <a class="btn btn-primary alignment alignbutton size" href="{{ url_for('register') }}" role="button" id="button2">Signup</a>
+
+{% endblock content %}
+
